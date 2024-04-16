@@ -1,8 +1,11 @@
 import random
 
+choice = {'rock': 'r', 'paper': 'p', 'scissors': 's'}  # Working with dictionary
+choice_keys = list(choice.values())
+
 def play():
     user = input("What's your choice? 'r' for rock, 'p' for paper, 's' for scissors: ")
-    computer = random.choice(['r', 's', 'p'])
+    computer = random.choice(choice_keys)
 
     if user == computer:
         return "It's a tie"
@@ -21,4 +24,8 @@ def is_win(player, opponent):
         or (player == 'p' and opponent == 'r'):
         return True
     
-print(play())
+while True:  # Incorporate a 'while' loop to continue the game until the user achieves victory
+    n = play()
+    print(n)
+    if n == 'You won':
+        break
